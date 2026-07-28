@@ -16,6 +16,13 @@ st.set_page_config(
     layout="wide",
 )
 
+# Initialize login state
+if "logged_in" not in st.session_state:
+  st.session_state["logged_in"] = False
+
+# Credentials
+USER_CREDENTIALS = {"admin": "password123", "user": "trendspy2026"}
+
 # Login Form
 def login_form():
   _, col2, _ = st.columns([1, 2, 1])
