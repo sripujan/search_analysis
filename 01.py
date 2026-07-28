@@ -61,6 +61,18 @@ if not st.session_state["logged_in"]:
   login_form()
   st.stop()
 
+# -------------------------------------------------------------------
+# 3. Top Header Bar (Main Dashboard Logout Button)
+# -------------------------------------------------------------------
+head_col1, head_col2 = st.columns([8, 2])
+with head_col1:
+  st.caption(f"Logged in as: **{st.session_state.get('user', 'User')}**")
+with head_col2:
+  if st.button("🚪 Logout", key="top_logout"):
+    logout()
+
+st.markdown("---")
+
 # Config
 st.set_page_config(
     page_title="SEO TrendSpy Dashboard", page_icon="📈", layout="wide"
