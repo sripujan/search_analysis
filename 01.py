@@ -54,6 +54,13 @@ def logout():
   st.session_state.pop("user", None)
   st.rerun()
 
+# -------------------------------------------------------------------
+# 2. Authentication Gatekeeper
+# -------------------------------------------------------------------
+if not st.session_state["logged_in"]:
+  login_form()
+  st.stop()
+
 # Config
 st.set_page_config(
     page_title="SEO TrendSpy Dashboard", page_icon="📈", layout="wide"
