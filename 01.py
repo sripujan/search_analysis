@@ -7,6 +7,15 @@ from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import TfidfVectorizer
 from trendspy import Trends
 
+# -------------------------------------------------------------------
+# 1. Page Config & Session State
+# -------------------------------------------------------------------
+st.set_page_config(
+    page_title="SEO TrendSpy Dashboard",
+    page_icon="📈",
+    layout="wide",
+)
+
 # Login Form
 def login_form():
   _, col2, _ = st.columns([1, 2, 1])
