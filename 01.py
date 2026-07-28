@@ -21,7 +21,7 @@ if "logged_in" not in st.session_state:
   st.session_state["logged_in"] = False
 
 # Credentials
-USER_CREDENTIALS = {"admin": "password123", "user": "trendspy2026"}
+USER_CREDENTIALS = {"admin": "admin123", "user": "user123"}
 
 # Login Form
 def login_form():
@@ -206,6 +206,7 @@ def cluster_keywords_nlp(keyword_list: list, num_clusters: int = 3) -> pd.DataFr
 
 
 # Sidebar Layout
+
 st.sidebar.title("🔍 TrendSpy Settings")
 navigation = st.sidebar.radio(
     "Select Feature",
