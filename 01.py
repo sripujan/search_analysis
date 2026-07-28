@@ -7,6 +7,37 @@ from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import TfidfVectorizer
 from trendspy import Trends
 
+# Login Form
+def login_form():
+  _, col2, _ = st.columns([1, 2, 1])
+
+  with col2:
+    st.title("📈 TrendSpy Login")
+    st.write("Enter your credentials to access the dashboard.")
+
+    with st.form("login_form"):
+      username = st.text_input("Username")
+      password = st.text_input("Password", type="password")
+      submit_button = st.form_submit_button("Sign In")
+
+      if submit_button:
+        if (
+            username in USER_CREDENTIALS
+            and USER_CREDENTIALS[username] == password
+        ):
+          st.session_state["logged_in"] = True
+          st.session_state["user"] = username
+          st.success("Login successful!")
+          st.rerun()
+        else:
+          st.error("Invalid Username or Password")
+
+
+def logout():
+  st.session_state["logged_in"] = False
+  st.session_state.pop("user", None)
+  st.rerun()
+
 # Config
 st.set_page_config(
     page_title="SEO TrendSpy Dashboard", page_icon="📈", layout="wide"
